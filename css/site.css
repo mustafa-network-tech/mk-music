@@ -864,6 +864,10 @@ a {
   object-fit: cover;
 }
 
+.film-player__still {
+  cursor: pointer;
+}
+
 .film-player__video::-webkit-media-controls {
   display: none !important;
 }

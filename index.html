@@ -39,8 +39,8 @@
     <main id="hero" class="hero hero--slides-only">
       <div class="hero__media" aria-hidden="true">
         <div class="hero__slides is-active">
-          <div class="hero__slide is-current" style="background-image: url('assets/images/musty%20(1).JPG')"></div>
-          <div class="hero__slide" style="background-image: url('assets/images/musty%20(4).JPG')"></div>
+          <div class="hero__slide is-current" data-hero-slide></div>
+          <div class="hero__slide" data-hero-slide></div>
         </div>
         <div class="hero__scrim"></div>
         <div class="hero__grain"></div>
@@ -81,87 +81,28 @@
         <h2 id="works-heading" class="section__title section__title--mega" data-i18n-html="videos.titleHtml">—</h2>
       </header>
 
-      <div class="film-playlist" hidden aria-hidden="true">
-        <span
-          class="film-playlist__src"
-          data-src="assets/videos/video%20(1).mp4"
-          data-poster="assets/images/musty%20(1).JPG"
-          data-i18n-work="work01"
-        ></span>
-        <span
-          class="film-playlist__src"
-          data-src="assets/videos/video%20(2).mp4"
-          data-poster="assets/images/musty%20(2).jpg"
-          data-i18n-work="work02"
-        ></span>
-        <span
-          class="film-playlist__src"
-          data-src="assets/videos/video%20(3).mp4"
-          data-poster="assets/images/musty%20(3).jpg"
-          data-i18n-work="work03"
-        ></span>
-        <span
-          class="film-playlist__src"
-          data-src="assets/videos/video%20(4).mp4"
-          data-poster="assets/images/musty%20(4).JPG"
-          data-i18n-work="work04"
-        ></span>
-        <span
-          class="film-playlist__src"
-          data-src="assets/videos/video%20(5).mp4"
-          data-poster="assets/images/musty%20(5).JPG"
-          data-i18n-work="work05"
-        ></span>
-        <span
-          class="film-playlist__src"
-          data-src="assets/videos/video%20(6).mp4"
-          data-poster="assets/images/musty%20(6).JPG"
-          data-i18n-work="work06"
-        ></span>
-      </div>
-
       <div class="film-player reveal" data-film-player>
         <div class="film-player__glass" role="region" data-i18n-aria="film.ariaShell">
           <div class="film-player__glow" aria-hidden="true"></div>
           <div class="film-player__sheen" aria-hidden="true"></div>
           <div class="film-player__video-shell">
-            <video
-              id="filmPlayerVideo"
-              class="film-player__video"
-              playsinline
-              preload="none"
-              controlslist="nodownload noremoteplayback"
-              disablepictureinpicture
-              poster="assets/images/musty%20(1).JPG"
-            ></video>
+            <img
+              id="filmSpotlightImg"
+              class="film-player__video film-player__still"
+              src="assets/images/images%20(1).jpeg"
+              alt=""
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+              tabindex="0"
+            />
           </div>
         </div>
 
         <div class="film-player__meta">
           <p class="film-player__title" data-film-meta-title></p>
           <p class="film-player__desc" data-film-meta-desc></p>
-        </div>
-
-        <div class="film-player__controls" role="group" data-i18n-aria="film.ariaControls">
-          <button type="button" class="film-ctrl film-ctrl--side" data-film-prev data-i18n-aria="film.prev" aria-label="">
-            <svg class="film-ctrl__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-              <polygon fill="currentColor" points="15,5 7,12 15,19" />
-            </svg>
-          </button>
-          <button type="button" class="film-ctrl film-ctrl--play" data-film-toggle data-i18n-aria="film.play" aria-label="">
-            <svg class="film-ctrl__svg film-ctrl__icon-play" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
-              <polygon fill="currentColor" points="9,6 9,18 19,12" />
-            </svg>
-            <svg class="film-ctrl__svg film-ctrl__icon-pause" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" hidden>
-              <rect fill="currentColor" x="7" y="6" width="3.5" height="12" rx="0.5" />
-              <rect fill="currentColor" x="13.5" y="6" width="3.5" height="12" rx="0.5" />
-            </svg>
-          </button>
-          <button type="button" class="film-ctrl film-ctrl--side" data-film-next data-i18n-aria="film.next" aria-label="">
-            <svg class="film-ctrl__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
-              <polygon fill="currentColor" points="9,5 17,12 9,19" />
-            </svg>
-          </button>
         </div>
       </div>
     </section>
@@ -178,16 +119,16 @@
       <div class="gallery-category reveal">
         <h3 class="gallery-category__title" data-i18n="gal.backstage">—</h3>
         <div class="gallery-grid gallery-grid--triple">
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(1).JPG" data-i18n-gallery="ed1">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(1).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(1).jpeg" data-i18n-gallery="ed1">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(1).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(2).jpg" data-i18n-gallery="ed2">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(2).jpg')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(2).jpeg" data-i18n-gallery="ed2">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(2).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(3).jpg" data-i18n-gallery="ed3">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(3).jpg')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(4).jpeg" data-i18n-gallery="ed3">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(4).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
         </div>
@@ -196,16 +137,16 @@
       <div class="gallery-category reveal">
         <h3 class="gallery-category__title" data-i18n="gal.portraits">—</h3>
         <div class="gallery-grid gallery-grid--triple">
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(6).JPG" data-i18n-gallery="ed6">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(6).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(6).jpeg" data-i18n-gallery="ed6">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(6).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(7).JPG" data-i18n-gallery="ed7">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(7).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(7).jpeg" data-i18n-gallery="ed7">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(7).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(8).JPG" data-i18n-gallery="ed8">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(8).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(8).jpeg" data-i18n-gallery="ed8">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(8).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
         </div>
@@ -214,16 +155,16 @@
       <div class="gallery-category reveal">
         <h3 class="gallery-category__title" data-i18n="gal.silence">—</h3>
         <div class="gallery-grid gallery-grid--triple">
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(11).JPG" data-i18n-gallery="ed11">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(11).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(10).jpeg" data-i18n-gallery="ed11">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(10).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(12).JPG" data-i18n-gallery="ed12">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(12).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(11).jpeg" data-i18n-gallery="ed12">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(11).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(13).JPG" data-i18n-gallery="ed13">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(13).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(12).jpeg" data-i18n-gallery="ed13">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(12).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
         </div>
@@ -232,16 +173,16 @@
       <div class="gallery-category reveal">
         <h3 class="gallery-category__title" data-i18n="gal.motion">—</h3>
         <div class="gallery-grid gallery-grid--triple">
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(16).JPG" data-i18n-gallery="ed16">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(16).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(13).jpeg" data-i18n-gallery="ed16">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(13).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(19).JPG" data-i18n-gallery="ed19">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(19).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(14).jpeg" data-i18n-gallery="ed19">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(14).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
-          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(18).JPG" data-i18n-gallery="ed18">
-            <span class="gal-bg" style="background-image: url('assets/images/musty%20(18).JPG')" aria-hidden="true"></span>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/images%20(9).jpeg" data-i18n-gallery="ed18">
+            <span class="gal-bg" style="background-image: url('assets/images/images%20(9).jpeg')" aria-hidden="true"></span>
             <span class="gal-caption"><span class="gal-caption__text"></span></span>
           </button>
         </div>
@@ -258,7 +199,7 @@
       <div class="about-visual reveal">
         <div class="about-accent-box" aria-hidden="true"></div>
         <div class="about-portrait">
-          <img src="assets/images/musty%20(8).JPG" alt="" loading="lazy" width="900" height="1200" />
+          <img src="assets/images/images%20(8).jpeg" alt="" loading="lazy" width="900" height="1200" data-about-portrait />
         </div>
         <div class="about-number" aria-hidden="true">MUSTY</div>
       </div>

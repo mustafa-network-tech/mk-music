@@ -103,6 +103,9 @@
   }
 
   function initHeroSlides() {
+    if (typeof window.__applyHeroSunset === "function") {
+      window.__applyHeroSunset();
+    }
     var slides = document.querySelectorAll(".hero .hero__slide");
     var dots = document.querySelectorAll(".slide-dots .dot");
     var counter = document.getElementById("slideCounter");

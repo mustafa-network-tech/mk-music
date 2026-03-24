@@ -1,6 +1,64 @@
 (function () {
   "use strict";
 
+  /* Denizli gün batımı — depodaki jpeg dosyaları (video yerine görsel + rastgele yerleşim) */
+  var DENIZLI_SUNSET_IMAGES = [
+    "assets/images/images%20(1).jpeg",
+    "assets/images/images%20(2).jpeg",
+    "assets/images/images%20(4).jpeg",
+    "assets/images/images%20(6).jpeg",
+    "assets/images/images%20(7).jpeg",
+    "assets/images/images%20(8).jpeg",
+    "assets/images/images%20(9).jpeg",
+    "assets/images/images%20(10).jpeg",
+    "assets/images/images%20(11).jpeg",
+    "assets/images/images%20(12).jpeg",
+    "assets/images/images%20(13).jpeg",
+    "assets/images/images%20(14).jpeg",
+  ];
+
+  function shuffleArrayInPlace(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  function pickRandomFrom(arr) {
+    if (!arr || !arr.length) return "";
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  function shuffleElementChildren(el) {
+    if (!el) return;
+    var frag = document.createDocumentFragment();
+    var kids = Array.prototype.slice.call(el.children);
+    while (kids.length) {
+      var idx = Math.floor(Math.random() * kids.length);
+      frag.appendChild(kids.splice(idx, 1)[0]);
+    }
+    el.appendChild(frag);
+  }
+
+  function shuffleAllGalleryGrids() {
+    document.querySelectorAll(".gallery-grid").forEach(shuffleElementChildren);
+  }
+
+  function applyHeroSunsetBackgrounds() {
+    var slides = document.querySelectorAll(".hero__slide[data-hero-slide]");
+    if (!slides.length) return;
+    var picks = DENIZLI_SUNSET_IMAGES.slice();
+    shuffleArrayInPlace(picks);
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.backgroundImage = "url('" + picks[i % picks.length] + "')";
+    }
+  }
+
+  window.__applyHeroSunset = applyHeroSunsetBackgrounds;
+
   var LANG_STORAGE = "musty.lang";
   var bundles = {};
   var currentDict = {};
@@ -259,97 +317,47 @@
     if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
   }
 
-  function initFilmPlayer() {
+  function applyAboutPortraitSunset() {
+    var img = document.querySelector("[data-about-portrait]");
+    if (!img) return;
+    img.src = pickRandomFrom(DENIZLI_SUNSET_IMAGES);
+    img.alt = t("film.sunsetAlt");
+  }
+
+  function initFilmStill() {
     var root = document.querySelector("[data-film-player]");
-    var video = document.getElementById("filmPlayerVideo");
-    var items = Array.prototype.slice.call(document.querySelectorAll(".film-playlist__src"));
-    if (!root || !video || !items.length) return;
+    var img = document.getElementById("filmSpotlightImg");
+    if (!root || !img) return;
 
     var titleEl = root.querySelector("[data-film-meta-title]");
     var descEl = root.querySelector("[data-film-meta-desc]");
-    var btnPrev = root.querySelector("[data-film-prev]");
-    var btnNext = root.querySelector("[data-film-next]");
-    var btnToggle = root.querySelector("[data-film-toggle]");
-    var iconPlay = btnToggle ? btnToggle.querySelector(".film-ctrl__icon-play") : null;
-    var iconPause = btnToggle ? btnToggle.querySelector(".film-ctrl__icon-pause") : null;
 
-    var currentIndex = 0;
+    img.src = pickRandomFrom(DENIZLI_SUNSET_IMAGES);
 
-    function updateMeta() {
-      var item = items[currentIndex];
-      if (!item || !titleEl || !descEl) return;
-      titleEl.textContent = item.getAttribute("data-video-title") || "";
-      descEl.textContent = item.getAttribute("data-video-desc") || "";
+    function syncStillMeta() {
+      if (titleEl) titleEl.textContent = t("film.sunsetTitle");
+      if (descEl) descEl.textContent = t("film.sunsetDesc");
+      img.alt = t("film.sunsetAlt");
+      img.setAttribute("aria-label", t("film.sunsetOpenAria"));
     }
 
-    function setPlayingUi(playing) {
-      if (!btnToggle) return;
-      btnToggle.classList.toggle("is-playing", playing);
-      if (iconPlay) iconPlay.hidden = playing;
-      if (iconPause) iconPause.hidden = !playing;
-      btnToggle.setAttribute("aria-label", playing ? t("film.pause") : t("film.play"));
+    syncStillMeta();
+
+    function openStill() {
+      openImageModal(img.src, t("film.sunsetAlt"));
     }
 
-    function goClip(delta) {
-      var wasPlaying = !video.paused;
-      var len = items.length;
-      currentIndex = (currentIndex + delta + len) % len;
-      var item = items[currentIndex];
-      var src = item.getAttribute("data-src");
-      var poster = item.getAttribute("data-poster");
-      video.setAttribute("poster", poster);
-      if (wasPlaying) {
-        video.src = src;
-        video.setAttribute("data-film-index", String(currentIndex));
-        video.load();
-        video.play().catch(function () {});
-        setPlayingUi(true);
-      } else {
-        video.pause();
-        video.removeAttribute("src");
-        video.removeAttribute("data-film-index");
-        video.load();
-        setPlayingUi(false);
+    img.addEventListener("click", openStill);
+    img.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openStill();
       }
-      updateMeta();
-    }
-
-    function togglePlay() {
-      if (video.paused) {
-        if (video.getAttribute("data-film-index") !== String(currentIndex)) {
-          video.src = items[currentIndex].getAttribute("data-src");
-          video.setAttribute("data-film-index", String(currentIndex));
-          video.load();
-        }
-        video.play().catch(function () {});
-      } else {
-        video.pause();
-      }
-    }
-
-    video.addEventListener("play", function () {
-      setPlayingUi(true);
     });
-    video.addEventListener("pause", function () {
-      setPlayingUi(false);
-    });
-    video.addEventListener("ended", function () {
-      setPlayingUi(false);
-    });
-
-    if (btnPrev) btnPrev.addEventListener("click", function () { goClip(-1); });
-    if (btnNext) btnNext.addEventListener("click", function () { goClip(1); });
-    if (btnToggle) btnToggle.addEventListener("click", togglePlay);
 
     window.__filmPlayerSync = function () {
-      updateMeta();
-      setPlayingUi(!video.paused);
+      syncStillMeta();
     };
-
-    var first = items[0];
-    video.setAttribute("poster", first.getAttribute("data-poster"));
-    updateMeta();
-    setPlayingUi(false);
   }
 
   function bindDuration(el) {
@@ -366,6 +374,8 @@
   }
 
   function bindUi() {
+    shuffleAllGalleryGrids();
+
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
@@ -417,7 +427,8 @@
 
     document.querySelectorAll("[data-duration-src]").forEach(bindDuration);
 
-    initFilmPlayer();
+    applyAboutPortraitSunset();
+    initFilmStill();
 
     var y = document.getElementById("y");
     if (y) y.textContent = String(new Date().getFullYear());
