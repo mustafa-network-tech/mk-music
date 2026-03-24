@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Musty</title>
+    <meta id="meta-desc" name="description" content="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cinzel:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+  </head>
+  <body>
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    <header class="site-nav" role="banner">
+      <a class="site-nav__mark" href="#hero">Must<span>y</span></a>
+      <div class="site-nav__right">
+        <nav aria-label="" data-i18n-aria="nav.aria">
+          <ul class="site-nav__links">
+            <li><a href="#hero" data-i18n="nav.home">Home</a></li>
+            <li><a href="#works" data-i18n="nav.works">Works</a></li>
+            <li><a href="#photos" data-i18n="nav.photos">Photos</a></li>
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lang-switch" role="group" data-i18n-aria="lang.switch">
+          <button type="button" class="lang-switch__btn" data-set-lang="tr" lang="tr">TR</button>
+          <button type="button" class="lang-switch__btn" data-set-lang="en" lang="en">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="hero" class="hero hero--slides-only">
+      <div class="hero__media" aria-hidden="true">
+        <div class="hero__slides is-active">
+          <div class="hero__slide is-current" style="background-image: url('assets/images/musty%20(1).JPG')"></div>
+          <div class="hero__slide" style="background-image: url('assets/images/musty%20(4).JPG')"></div>
+        </div>
+        <div class="hero__scrim"></div>
+        <div class="hero__grain"></div>
+      </div>
+      <div class="hero-foreground hero-reveal">
+        <div class="hero-content">
+          <h1 class="hero-name" data-i18n-html="hero.nameHtml">
+            <span class="hero-name__stem">Must</span><span class="hero-name__y">y</span>
+          </h1>
+          <p class="hero-eyebrow" data-i18n="hero.kicker">—</p>
+          <p class="hero-tagline" data-i18n="hero.tagline">—</p>
+          <div class="hero-line" aria-hidden="true"></div>
+          <div class="hero-buttons">
+            <a class="btn-gold" href="#works" data-i18n="hero.watch">Watch</a>
+            <a class="btn-ghost" href="#photos" data-i18n="hero.gallery">Gallery</a>
+            <a class="btn-ghost" href="#contact" data-i18n="hero.contact">Contact</a>
+          </div>
+          <p class="hero-promise" data-i18n-aria="hero.promiseAria">
+            <span class="hero-promise__word" style="--hp: 0" data-i18n="hero.promise1">Kısa.</span>
+            <span class="hero-promise__word" style="--hp: 1" data-i18n="hero.promise2">Net.</span>
+            <span class="hero-promise__word" style="--hp: 2" data-i18n="hero.promise3">Sahici.</span>
+          </p>
+        </div>
+        <div class="slide-dots" role="tablist" aria-label="">
+          <div class="dot active" data-slide="0" role="button" tabindex="0" aria-label="1"></div>
+          <div class="dot" data-slide="1" role="button" tabindex="0" aria-label="2"></div>
+        </div>
+        <div class="slide-counter" id="slideCounter">01 / 02</div>
+        <div class="scroll-hint">
+          <span data-i18n="hero.scroll">Scroll</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+    </main>
+
+    <section id="works" class="section section--works section--film" aria-labelledby="works-heading">
+      <header class="section__head section__head--film reveal">
+        <h2 id="works-heading" class="section__title section__title--mega" data-i18n-html="videos.titleHtml">—</h2>
+      </header>
+
+      <div class="film-playlist" hidden aria-hidden="true">
+        <span
+          class="film-playlist__src"
+          data-src="assets/videos/video%20(1).mp4"
+          data-poster="assets/images/musty%20(1).JPG"
+          data-i18n-work="work01"
+        ></span>
+        <span
+          class="film-playlist__src"
+          data-src="assets/videos/video%20(2).mp4"
+          data-poster="assets/images/musty%20(2).jpg"
+          data-i18n-work="work02"
+        ></span>
+        <span
+          class="film-playlist__src"
+          data-src="assets/videos/video%20(3).mp4"
+          data-poster="assets/images/musty%20(3).jpg"
+          data-i18n-work="work03"
+        ></span>
+        <span
+          class="film-playlist__src"
+          data-src="assets/videos/video%20(4).mp4"
+          data-poster="assets/images/musty%20(4).JPG"
+          data-i18n-work="work04"
+        ></span>
+        <span
+          class="film-playlist__src"
+          data-src="assets/videos/video%20(5).mp4"
+          data-poster="assets/images/musty%20(5).JPG"
+          data-i18n-work="work05"
+        ></span>
+        <span
+          class="film-playlist__src"
+          data-src="assets/videos/video%20(6).mp4"
+          data-poster="assets/images/musty%20(6).JPG"
+          data-i18n-work="work06"
+        ></span>
+      </div>
+
+      <div class="film-player reveal" data-film-player>
+        <div class="film-player__glass" role="region" data-i18n-aria="film.ariaShell">
+          <div class="film-player__glow" aria-hidden="true"></div>
+          <div class="film-player__sheen" aria-hidden="true"></div>
+          <div class="film-player__video-shell">
+            <video
+              id="filmPlayerVideo"
+              class="film-player__video"
+              playsinline
+              preload="none"
+              controlslist="nodownload noremoteplayback"
+              disablepictureinpicture
+              poster="assets/images/musty%20(1).JPG"
+            ></video>
+          </div>
+        </div>
+
+        <div class="film-player__meta">
+          <p class="film-player__title" data-film-meta-title></p>
+          <p class="film-player__desc" data-film-meta-desc></p>
+        </div>
+
+        <div class="film-player__controls" role="group" data-i18n-aria="film.ariaControls">
+          <button type="button" class="film-ctrl film-ctrl--side" data-film-prev data-i18n-aria="film.prev" aria-label="">
+            <svg class="film-ctrl__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+              <polygon fill="currentColor" points="15,5 7,12 15,19" />
+            </svg>
+          </button>
+          <button type="button" class="film-ctrl film-ctrl--play" data-film-toggle data-i18n-aria="film.play" aria-label="">
+            <svg class="film-ctrl__svg film-ctrl__icon-play" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+              <polygon fill="currentColor" points="9,6 9,18 19,12" />
+            </svg>
+            <svg class="film-ctrl__svg film-ctrl__icon-pause" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" hidden>
+              <rect fill="currentColor" x="7" y="6" width="3.5" height="12" rx="0.5" />
+              <rect fill="currentColor" x="13.5" y="6" width="3.5" height="12" rx="0.5" />
+            </svg>
+          </button>
+          <button type="button" class="film-ctrl film-ctrl--side" data-film-next data-i18n-aria="film.next" aria-label="">
+            <svg class="film-ctrl__svg" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+              <polygon fill="currentColor" points="9,5 17,12 9,19" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="photos" class="section section--photos" aria-labelledby="photos-heading">
+      <header class="gallery-page-head reveal">
+        <h2 id="photos-heading" class="section__title section__title--mega section__title--photos" data-i18n-html="photos.titleHtml">—</h2>
+        <p class="section__sub section__sub--photos-poetic">
+          <span data-i18n="photos.poetic1">—</span><br />
+          <span data-i18n="photos.poetic2">—</span>
+        </p>
+      </header>
+
+      <div class="gallery-category reveal">
+        <h3 class="gallery-category__title" data-i18n="gal.backstage">—</h3>
+        <div class="gallery-grid gallery-grid--triple">
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(1).JPG" data-i18n-gallery="ed1">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(1).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(2).jpg" data-i18n-gallery="ed2">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(2).jpg')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(3).jpg" data-i18n-gallery="ed3">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(3).jpg')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="gallery-category reveal">
+        <h3 class="gallery-category__title" data-i18n="gal.portraits">—</h3>
+        <div class="gallery-grid gallery-grid--triple">
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(6).JPG" data-i18n-gallery="ed6">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(6).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(7).JPG" data-i18n-gallery="ed7">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(7).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(8).JPG" data-i18n-gallery="ed8">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(8).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="gallery-category reveal">
+        <h3 class="gallery-category__title" data-i18n="gal.silence">—</h3>
+        <div class="gallery-grid gallery-grid--triple">
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(11).JPG" data-i18n-gallery="ed11">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(11).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(12).JPG" data-i18n-gallery="ed12">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(12).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(13).JPG" data-i18n-gallery="ed13">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(13).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="gallery-category reveal">
+        <h3 class="gallery-category__title" data-i18n="gal.motion">—</h3>
+        <div class="gallery-grid gallery-grid--triple">
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(16).JPG" data-i18n-gallery="ed16">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(16).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(19).JPG" data-i18n-gallery="ed19">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(19).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+          <button type="button" class="gal-item" data-gallery-open data-gallery-src="assets/images/musty%20(18).JPG" data-i18n-gallery="ed18">
+            <span class="gal-bg" style="background-image: url('assets/images/musty%20(18).JPG')" aria-hidden="true"></span>
+            <span class="gal-caption"><span class="gal-caption__text"></span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="gallery-all reveal">
+        <a href="kareler.html" class="gallery-all__link" data-i18n-aria="photos.allAria">
+          <span class="gallery-all__title" data-i18n="gal.all">—</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="section section--about" aria-labelledby="about-heading">
+      <div class="about-visual reveal">
+        <div class="about-accent-box" aria-hidden="true"></div>
+        <div class="about-portrait">
+          <img src="assets/images/musty%20(8).JPG" alt="" loading="lazy" width="900" height="1200" />
+        </div>
+        <div class="about-number" aria-hidden="true">MUSTY</div>
+      </div>
+      <div class="about-text reveal">
+        <h2 id="about-heading" class="section__title section__title--mega section__title--romantic section__title--about" data-i18n-html="about.titleHtml">—</h2>
+        <ul class="manifesto-lines">
+          <li data-i18n-html="about.m1">—</li>
+          <li data-i18n-html="about.m2">—</li>
+          <li data-i18n-html="about.m3">—</li>
+          <li data-i18n-html="about.m4">—</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="press" class="section section--press" aria-labelledby="press-heading">
+      <div class="press-intro reveal">
+        <h2 id="press-heading" class="section__title section__title--mega" data-i18n="press.title">—</h2>
+      </div>
+      <div class="press-grid reveal">
+        <div class="press-item">
+          <div class="press-mark" aria-hidden="true">"</div>
+          <p class="press-quote" data-i18n="press.q1">—</p>
+          <p class="press-source" data-i18n="press.s1">—</p>
+        </div>
+        <div class="press-item">
+          <div class="press-mark" aria-hidden="true">"</div>
+          <p class="press-quote" data-i18n="press.q2">—</p>
+          <p class="press-source" data-i18n="press.s2">—</p>
+        </div>
+        <div class="press-item">
+          <div class="press-mark" aria-hidden="true">"</div>
+          <p class="press-quote" data-i18n="press.q3">—</p>
+          <p class="press-source" data-i18n="press.s3">—</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--contact" aria-labelledby="contact-heading">
+      <div class="contact-text reveal">
+        <h2 id="contact-heading" class="section__title section__title--mega section__title--romantic section__title--contact" data-i18n-html="contact.titleHtml">—</h2>
+        <p class="contact-desc" data-i18n="contact.desc">—</p>
+        <div class="contact-links">
+          <a href="#" class="contact-link contact-link--row" data-i18n-aria="aria.instagram">
+            <span class="contact-link__pill">
+              <span class="link-icon link-icon--svg" aria-hidden="true">
+                <svg class="contact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                  <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" />
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" />
+                  <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+            </span>
+            <span class="contact-link__label" data-i18n="contact.ig">—</span>
+          </a>
+          <a href="#" class="contact-link contact-link--row" data-i18n-aria="aria.youtube">
+            <span class="contact-link__pill">
+              <span class="link-icon link-icon--svg" aria-hidden="true">
+                <svg class="contact-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span class="contact-link__label" data-i18n="contact.yt">—</span>
+          </a>
+          <a href="#" class="contact-link contact-link--row" data-i18n-aria="aria.tiktok">
+            <span class="contact-link__pill">
+              <span class="link-icon link-icon--svg" aria-hidden="true">
+                <svg class="contact-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-5.2-1.71 2.89 2.89 0 0 1 2.31-2.83V9.39a6.05 6.05 0 1 0 6.33 6V8.46a8.18 8.18 0 0 0 4.78 1.54V6.69z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span class="contact-link__label" data-i18n="contact.tt">—</span>
+          </a>
+          <a href="mailto:hello@musty.studio" class="contact-link contact-link--row" data-i18n-aria="aria.email">
+            <span class="contact-link__pill">
+              <span class="link-icon link-icon--svg" aria-hidden="true">
+                <svg class="contact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path d="m22 6-10 7L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </span>
+            <span class="contact-link__label" data-i18n="contact.mailto">—</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-form-side reveal" role="form" aria-label="">
+        <div class="form-field">
+          <label for="cf-name" data-i18n="contact.name">—</label>
+          <input id="cf-name" type="text" autocomplete="name" data-i18n-placeholder="contact.phName" placeholder="" />
+        </div>
+        <div class="form-field">
+          <label for="cf-email" data-i18n="contact.email">—</label>
+          <input id="cf-email" type="email" autocomplete="email" data-i18n-placeholder="contact.phEmail" placeholder="" />
+        </div>
+        <div class="form-field">
+          <label for="cf-subject" data-i18n="contact.subject">—</label>
+          <input id="cf-subject" type="text" data-i18n-placeholder="contact.phSubject" placeholder="" />
+        </div>
+        <div class="form-field">
+          <label for="cf-msg" data-i18n="contact.message">—</label>
+          <textarea id="cf-msg" rows="5" data-i18n-placeholder="contact.phMessage" placeholder=""></textarea>
+        </div>
+        <button type="button" class="submit-btn" data-i18n="contact.submit">—</button>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span class="site-footer__mark">MUSTY</span>
+      <p class="site-footer__tagline" data-i18n="footer.tagline">iz bırak</p>
+      <p class="site-footer__copy">© <span id="y"></span> · <span data-i18n="footer.rights">—</span></p>
+    </footer>
+
+    <div id="video-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-video-title" aria-hidden="true">
+      <div class="modal__box">
+        <button type="button" class="modal__close" data-i18n="modal.close">Close</button>
+        <div class="modal__video-wrap">
+          <video class="modal__player" controls playsinline></video>
+        </div>
+        <div class="modal__caption">
+          <h3 id="modal-video-title" data-modal-title></h3>
+          <p data-modal-desc></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="image-modal" class="modal lightbox-img" role="dialog" aria-modal="true" aria-label="" data-i18n-aria="imageModal.aria" aria-hidden="true">
+      <div class="modal__box">
+        <button type="button" class="modal__close" data-i18n="modal.close">Close</button>
+        <div class="modal__img-wrap">
+          <img class="modal__img" src="" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main2.js"></script>
+    <script src="js/locales.js"></script>
+    <script src="js/site.js"></script>
+  </body>
+</html>

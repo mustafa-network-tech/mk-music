@@ -1,0 +1,498 @@
+/**
+ * style2.css — index2 / premium etkileşim katmanı
+ * site.css yüklendikten sonra gelir; :root değişkenlerini kullanır.
+ * Ayrı index2.html kullanırsan alttaki “legacy” bölüm devreye girer.
+ */
+
+/* ——— Özel imleç ———
+   Kaynak: index2’nin css/style.css (.cursor / .cursor-ring) + js/main.js hover (scale 1.8, altın border).
+   Bu blok css/style2.css içinde; site.css’ten SONRA yüklenir. */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 10050;
+  will-change: transform;
+}
+
+.cursor-dot {
+  /* style.css ile aynı: 8px altın nokta — scale merkezden (main2.js) */
+  width: 8px;
+  height: 8px;
+  margin: 0;
+  border-radius: 50%;
+  background: var(--gold, #b8965a);
+  opacity: 1;
+  transform-origin: center center;
+  transition: box-shadow 0.22s ease;
+}
+
+.cursor-dot.cursor-dot--hover {
+  box-shadow: 0 0 14px rgba(184, 150, 90, 0.55), 0 0 0 1px rgba(184, 150, 90, 0.2);
+}
+
+body.has-custom-cursor {
+  cursor: none;
+}
+
+.cursor-ring {
+  /* style.css: 36px çerçeve — sanatcı2: hover’da scale(1.8) + altın (main2.js) */
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 150, 90, 0.5);
+  box-sizing: border-box;
+  transform-origin: center center;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.cursor-ring.cursor-ring--hover {
+  border-color: rgba(184, 150, 90, 0.88);
+  box-shadow: 0 0 28px rgba(184, 150, 90, 0.22), 0 0 0 1px rgba(184, 150, 90, 0.12);
+}
+
+.has-custom-cursor a,
+.has-custom-cursor button,
+.has-custom-cursor input,
+.has-custom-cursor textarea,
+.has-custom-cursor .tracklist__row,
+.has-custom-cursor .gal-item,
+.has-custom-cursor .lang-switch__btn,
+.has-custom-cursor .submit-btn,
+.has-custom-cursor [role="button"],
+.has-custom-cursor .slide-dots .dot,
+.has-custom-cursor .contact-link,
+.has-custom-cursor .press-item {
+  cursor: none;
+}
+
+/* Dokunmatikte sistem imleci; fare + ince pointer’da özel imleç kalır */
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+  .has-custom-cursor a,
+  .has-custom-cursor button,
+  .has-custom-cursor input,
+  .has-custom-cursor textarea,
+  .has-custom-cursor .tracklist__row,
+  .has-custom-cursor .gal-item,
+  .has-custom-cursor .lang-switch__btn,
+  .has-custom-cursor .submit-btn,
+  .has-custom-cursor [role="button"],
+  .has-custom-cursor .slide-dots .dot,
+  .has-custom-cursor .contact-link,
+  .has-custom-cursor .press-item {
+    cursor: auto;
+  }
+}
+
+/* ——— Scroll reveal ——— */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 32px, 0);
+  transition: opacity 0.95s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)),
+    transform 0.95s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ——— Nav: alt çizgi hover ——— */
+.site-nav__links a {
+  position: relative;
+}
+
+.site-nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 1px;
+  background: var(--gold, #b6a063);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  opacity: 0.85;
+}
+
+.site-nav__links a:hover::after,
+.site-nav__links a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* ——— Hero butonları: site.css’te premium pill (üst ışık vurusu); ::before sweep yok ——— */
+.hero-buttons .btn-ghost::before,
+.hero-buttons .btn-gold::before {
+  content: none;
+  display: none;
+}
+
+/* ——— Galeri: caption netliği (sanatcı2 .gal-caption ile uyumlu) ——— */
+.gal-item:focus-visible {
+  outline: 1px solid var(--gold, #b8965a);
+  outline-offset: 2px;
+}
+
+/* ——— İletişim / Hakkında: başlık (büyük harf yok, serif) ——— */
+.section__title--romantic {
+  text-transform: none;
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  color: var(--white, #f5f2ee);
+}
+
+.contact-desc {
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: 1.02rem;
+  font-style: italic;
+  color: var(--muted, rgba(245, 242, 238, 0.45));
+}
+
+.contact-link {
+  transition: transform 0.4s var(--ease-out, ease), color 0.3s ease;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  transform: translateX(6px);
+}
+
+/* Gönder düğmesi: site.css .contact-form-side .submit-btn (hero btn-gold ile uyumlu) */
+
+/* ——— Basın ——— */
+.press-item {
+  transition: background 0.45s ease;
+}
+
+.press-item:hover {
+  background: rgba(245, 242, 238, 0.02);
+}
+
+/* ——— Modal açılış ——— */
+.modal.is-open .modal__box {
+  animation: style2ModalIn 0.5s var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+@keyframes style2ModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal.is-open .modal__box {
+    animation: none;
+  }
+}
+
+/* =============================================================================
+   LEGACY: index2.html (css/style.css + js/main.js sınıf isimleri)
+   Bu dosyayı index2 ile açtığında hover / layout uyumu için.
+   ============================================================================= */
+
+#cursor.cursor,
+.cursor#cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold, #b6a063);
+  z-index: 10050;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+#cursorRing.cursor-ring,
+.cursor-ring#cursorRing {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(182, 160, 99, 0.45);
+  z-index: 10049;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+body:has(.nav) nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem clamp(1.5rem, 4vw, 3rem);
+  mix-blend-mode: difference;
+}
+
+.nav-logo {
+  font-family: var(--font-cinzel, "Cinzel", serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.42em;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 0.62rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav-lang button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.nav-lang button[aria-pressed="true"] {
+  color: var(--gold, #b6a063);
+}
+
+/* Tipografi site.css’te; giriş animasyonu dosya sonunda main#hero.hero */
+
+.section-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold-soft, #c9b078);
+}
+
+.section-title {
+  font-family: var(--font-display, "Cormorant Garamond", serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #faf8f3;
+  line-height: 1.1;
+}
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.5s var(--ease-out, ease);
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+}
+
+.work-overlay {
+  transition: opacity 0.45s ease;
+}
+
+.track-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: background 0.35s ease, padding-left 0.35s ease;
+}
+
+.track-item:hover {
+  background: rgba(182, 160, 99, 0.06);
+  padding-left: 0.5rem;
+}
+
+.track-tag {
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold, #b6a063);
+  border: 1px solid rgba(182, 160, 99, 0.3);
+  padding: 0.35rem 0.6rem;
+}
+
+/* .gal-item / .press / .contact-link: ana sayfa site.css’te (sanatcı2); burada tekrar tanımlanmıyor. */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal-overlay.is-open,
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  position: relative;
+  max-width: min(960px, 94vw);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-gold {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border: 1px solid rgba(182, 160, 99, 0.45);
+  color: var(--gold, #b6a063);
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.btn-gold:hover {
+  background: rgba(182, 160, 99, 0.12);
+  color: #fff;
+}
+
+/* =============================================================================
+   Hero: tek blok — başta tam şeffaf + blur, birlikte opaklık ve netlik kazanır
+   ============================================================================= */
+@keyframes heroReveal {
+  0% {
+    opacity: 0;
+    filter: blur(18px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes heroNameStem {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroNameY {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) skewX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) skewX(-10deg);
+  }
+}
+
+@keyframes heroPromiseWord {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+main#hero.hero .hero-foreground.hero-reveal {
+  opacity: 0;
+  filter: blur(18px);
+  animation: heroReveal 1.85s cubic-bezier(0.33, 0.72, 0.35, 1) 0.12s forwards;
+  will-change: opacity, filter;
+}
+
+main#hero.hero .hero-name__stem {
+  opacity: 0;
+  animation: heroNameStem 1.18s cubic-bezier(0.33, 0.72, 0.35, 1) 0.42s forwards;
+}
+
+main#hero.hero .hero-name__y {
+  opacity: 0;
+  animation: heroNameY 1.08s cubic-bezier(0.33, 0.72, 0.35, 1) 0.92s forwards;
+}
+
+main#hero.hero .hero-promise__word {
+  display: inline-block;
+  opacity: 0;
+  margin-right: 1.4em;
+  animation: heroPromiseWord 1.45s cubic-bezier(0.28, 0.5, 0.25, 1) forwards;
+  animation-delay: calc(2.55s + var(--hp) * 1.25s);
+}
+
+main#hero.hero .hero-promise__word:last-child {
+  margin-right: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main#hero.hero .hero-foreground.hero-reveal {
+    opacity: 1;
+    filter: none;
+    animation: none;
+  }
+
+  main#hero.hero .hero-name__stem,
+  main#hero.hero .hero-name__y {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+
+  main#hero.hero .hero-name__y {
+    transform: skewX(-10deg);
+  }
+
+  main#hero.hero .hero-promise__word {
+    opacity: 1;
+    margin-right: 1.4em;
+    animation: none;
+    transform: none;
+  }
+
+  main#hero.hero .hero-promise__word:last-child {
+    margin-right: 0;
+  }
+}
