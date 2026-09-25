@@ -474,4 +474,13 @@
   } else {
     boot();
   }
+
+  /* ——— Portföy demosu: form hiçbir yere gönderilmez, örnek proje notunu gösterir ——— */
+  var demoSubmit = document.querySelector("[data-demo-submit]");
+  var demoNote = document.querySelector("[data-demo-note]");
+  if (demoSubmit && demoNote) {
+    demoSubmit.addEventListener("click", function () {
+      demoNote.hidden = false;
+    });
+  }
 })();

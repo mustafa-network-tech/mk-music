@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kareler ve atmosfer — Musty</title>
-    <meta id="meta-desc" name="description" content="" />
+    <title>Kareler ve atmosfer — Musty (Demo)</title>
+    <meta id="meta-desc" name="description" content="MK Digital Systems&#39;in sanatçılar için hazırladığı örnek web sitesi: sinematik galeri, video alanı ve iletişim. Musty gerçek bir sanatçı değildir." />
+    <!-- Portföy demosu: arama sonuçlarında gerçek bir sanatçı sanılmaması için (vercel.json'da X-Robots-Tag de var). -->
+    <meta name="robots" content="noindex, nofollow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,6 +17,11 @@
     <link rel="stylesheet" href="css/style2.css" />
   </head>
   <body class="page-kareler">
+    <aside class="demo-bar" aria-label="Örnek proje bildirimi">
+      <b data-i18n="demo.label">Örnek proje</b>
+      <p class="demo-bar__long" data-i18n="demo.long">Musty gerçek bir sanatçı değildir; MK Digital Systems’in sanatçılar için hazırladığı bir web sitesi demosudur.</p>
+      <a href="https://mk-digital-systems-seven.vercel.app/tr"><span class="demo-bar__short" data-i18n="demo.short">MK Digital Systems demosu ↗</span><span class="demo-bar__full">MK Digital Systems ↗</span></a>
+    </aside>
     <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
     <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
     <header class="site-nav" role="banner">
@@ -100,6 +107,7 @@
       <span class="site-footer__mark">MUSTY</span>
       <p class="site-footer__tagline" data-i18n="footer.tagline">iz bırak</p>
       <p class="site-footer__copy">© <span id="y"></span> · <span data-i18n="footer.rights">—</span></p>
+      <p class="site-footer__credit"><a href="https://mk-digital-systems-seven.vercel.app/tr" data-i18n="footer.credit">Tasarım ve geliştirme: MK Digital Systems</a></p>
     </footer>
 
     <div id="image-modal" class="modal lightbox-img" role="dialog" aria-modal="true" aria-label="" data-i18n-aria="imageModal.aria" aria-hidden="true">

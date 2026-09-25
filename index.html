@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Musty</title>
-    <meta id="meta-desc" name="description" content="" />
+    <title>Musty — Sanatçı Web Sitesi Demosu | MK Digital Systems</title>
+    <meta id="meta-desc" name="description" content="MK Digital Systems&#39;in sanatçılar için hazırladığı örnek web sitesi: sinematik galeri, video alanı ve iletişim. Musty gerçek bir sanatçı değildir." />
+    <!-- Portföy demosu: arama sonuçlarında gerçek bir sanatçı sanılmaması için (vercel.json'da X-Robots-Tag de var). -->
+    <meta name="robots" content="noindex, nofollow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,6 +17,11 @@
     <link rel="stylesheet" href="css/style2.css" />
   </head>
   <body>
+    <aside class="demo-bar" aria-label="Örnek proje bildirimi">
+      <b data-i18n="demo.label">Örnek proje</b>
+      <p class="demo-bar__long" data-i18n="demo.long">Musty gerçek bir sanatçı değildir; MK Digital Systems’in sanatçılar için hazırladığı bir web sitesi demosudur.</p>
+      <a href="https://mk-digital-systems-seven.vercel.app/tr"><span class="demo-bar__short" data-i18n="demo.short">MK Digital Systems demosu ↗</span><span class="demo-bar__full">MK Digital Systems ↗</span></a>
+    </aside>
     <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
     <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
     <header class="site-nav" role="banner">
@@ -280,7 +287,7 @@
             </span>
             <span class="contact-link__label" data-i18n="contact.tt">—</span>
           </a>
-          <a href="mailto:hello@musty.studio" class="contact-link contact-link--row" data-i18n-aria="aria.email">
+          <a href="https://wa.me/905456597551?text=Merhaba%20MK%20Digital%20Systems%2C%20Musty%20demo%20sitesini%20inceledim.%20Benzer%20bir%20sanat%C3%A7%C4%B1%20%2F%20portfolyo%20web%20sitesi%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="contact-link contact-link--row" data-i18n-aria="aria.email">
             <span class="contact-link__pill">
               <span class="link-icon link-icon--svg" aria-hidden="true">
                 <svg class="contact-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
@@ -316,7 +323,11 @@
           <label for="cf-msg" data-i18n="contact.message">—</label>
           <textarea id="cf-msg" rows="5" data-i18n-placeholder="contact.phMessage" placeholder=""></textarea>
         </div>
-        <button type="button" class="submit-btn" data-i18n="contact.submit">—</button>
+        <button type="button" class="submit-btn" data-i18n="contact.submit" data-demo-submit>—</button>
+        <div class="form-demo-note" data-demo-note hidden>
+          <p data-i18n="contact.demoNote">—</p>
+          <a href="https://wa.me/905456597551?text=Merhaba%20MK%20Digital%20Systems%2C%20Musty%20demo%20sitesini%20inceledim.%20Benzer%20bir%20sanat%C3%A7%C4%B1%20%2F%20portfolyo%20web%20sitesi%20hakk%C4%B1nda%20g%C3%B6r%C3%BC%C5%9Fmek%20istiyorum." target="_blank" rel="noopener noreferrer" data-i18n="contact.demoCta">—</a>
+        </div>
       </div>
     </section>
 
@@ -324,6 +335,7 @@
       <span class="site-footer__mark">MUSTY</span>
       <p class="site-footer__tagline" data-i18n="footer.tagline">iz bırak</p>
       <p class="site-footer__copy">© <span id="y"></span> · <span data-i18n="footer.rights">—</span></p>
+      <p class="site-footer__credit"><a href="https://mk-digital-systems-seven.vercel.app/tr" data-i18n="footer.credit">Tasarım ve geliştirme: MK Digital Systems</a></p>
     </footer>
 
     <div id="video-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-video-title" aria-hidden="true">
